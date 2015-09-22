@@ -2,12 +2,27 @@
 Sign Up
 </h3>
 
+
 <form class="create-signup" action="/api/signups" method="post">
-  <label for="signup[name]">Enter your name</label>
-  <input type="text" name="signup[name]"><br>
-  <label for="signup[email]">Enter your email</label>
-  <input type="email" name="signup[email]"><br>
-  <label for="signup[phone_number]">Enter your phone number</label>
-  <input type="tel" name="signup[phone_number]"><br>
-  <input type="submit" id="new-signup" value="Sign Up">
+  <div class="row">
+    <div class="three columns">
+      <label for="signup[name]">Name:</label>
+      <input type="text" name="signup[name]">
+    </div>
+    <div class="two columns">
+      <label for="signup[phone_number]">Phone Number:</label>
+      <input type="tel" name="signup[phone_number]">
+    </div>
+  </div>
+  <div class="row">
+
+  <div class="three columns">
+    <label for="signup[email]">Email:</label>
+    <input type="email" name="signup[email]">
+  </div>
+</div>
+  <div class="row">
+    <input type="submit" id="new-signup" value="Sign Up">
+  </div>
+  </div>
 </form>
