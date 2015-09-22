@@ -1,4 +1,6 @@
 class ApiController < Sinatra::Application
 
-# Configs for API
+  before do
+      content_type :json
+    end
 end

@@ -4,7 +4,7 @@ Bundler.require()
 
 
 # Models
-
+require './models/signup'
 
 
 # Controllers
