@@ -1,3 +1,9 @@
 body {
   background: floralwhite;
 }
+
+
+
+.error {
+  border: solid 5px red;
+}

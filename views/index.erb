@@ -1,6 +1,33 @@
 <h3>Signups</h3>
 
 
+<div id="form-container">
+
+</div>
+
+<a href="/signup">New Signup</a>
+<form id="create-signup">
+  <div class="row">
+    <div class="three columns">
+        <label for="signup[name]">Name:</label>
+        <input type="text" name="signup[name]" class="name-input">
+    </div>
+    <div class="two columns">
+        <label for="signup[phone_number]">Phone Number:</label>
+        <input type="integer" name="signup[phone_number]"  class="phone-input">
+    </div>
+  </div>
+  <div class="row">
+
+  <div class="three columns">
+      <label for="signup[email]">Email:</label>
+      <input type="text" name="signup[email]"  class="email-input">
+  </div>
+</div>
+  <div class="row">
+    <input type="submit" id="new-signup" value="Sign Up">
+  </div>
+</form>
 
 <table class="u-full-width">
   <thead>
@@ -15,6 +42,5 @@
   <tbody id="signups-list">
 
   </tbody>
-
 
 </table>

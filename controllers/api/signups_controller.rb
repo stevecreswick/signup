@@ -3,7 +3,7 @@ class SignUpsController < ApiController
 
 
 def signupParams
-  @signupParams = @signupParams || JSON.parse(request.body.read.to_s)
+  @signupParams = @signupParams || JSON.parse(request.body.read)
 end
 
 get '/' do
@@ -15,7 +15,6 @@ post '/' do
   content_type :json
   signup = Signup.create( params[:signup] || signupParams )
   signup.to_json
-  redirect '/'
 end
 
 delete '/:id' do
