@@ -4,7 +4,4 @@ class WelcomeController < ApplicationController
     erb :index
   end
 
-  get '/signup' do
-    erb :signup
-  end
 end
