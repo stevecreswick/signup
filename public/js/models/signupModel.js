@@ -1,6 +1,8 @@
-console.log('signup model loaded');
+console.log('... signupModel.js loaded ');
 
-var Signup = Backbone.Model.extend({
+var app = app || {};
+
+app.Signup = Backbone.Model.extend({
   defaults: {
     username: '',
     email: '',

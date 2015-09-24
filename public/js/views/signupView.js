@@ -1,4 +1,8 @@
-var SignupView = Backbone.View.extend({
+console.log('... signupView.js loaded ');
+
+var app = app || {};
+
+app.SignupView = Backbone.View.extend({
   tagName: 'tr',
   className: 'signup',
   template: _.template( $('#signup-template').html() ),

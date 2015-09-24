@@ -1,8 +1,8 @@
-console.log('signups loaded...');
+console.log('... signupCollection.js loaded ');
 
 var app = app || {};
 
-var SignupCollection = Backbone.Collection.extend({
-  model: Signup,
+app.SignupCollection = Backbone.Collection.extend({
+  model: app.Signup,
   url: '/api/signups'
 });

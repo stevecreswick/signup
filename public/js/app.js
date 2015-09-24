@@ -1,4 +1,5 @@
-console.log('...app loaded');
+console.log(' ... app.js loaded .');
+
 
 var app = app || {};
 
@@ -10,10 +11,17 @@ $.ajaxSetup({
 });
 
 
-  var signups = new SignupCollection({});
+  app.signups = new app.SignupCollection({});
 
-  var signupPainter = new SignupListView({
-    collection: signups
+  app.signupPainter = new app.SignupListView({
+    collection: app.signups
   });
 
-  signups.fetch();
+  app.signups.fetch();
+
+
+
+  $( document ).ready(function() {
+    app.bindSignup();
+
+  });
