@@ -2,8 +2,20 @@ body {
   background: floralwhite;
 }
 
-
-
 .error {
-  border: solid 5px red;
+  color: red;
+  margin-bottom: 3%;
+  margin-top: -3%;
+}
+
+.name-error{
+  display: none;
+}
+
+.email-error{
+  display: none;
+}
+
+.phone-error{
+  display: none;
 }

@@ -13,17 +13,9 @@ $.ajaxSetup({
 
 var Signup = Backbone.Model.extend({
   defaults: {
-    name: '',
+    username: '',
     email: '',
     phone_number: 0
-  },
-  validate: function (attrs) {
-      if (!attrs.email) {
-          return 'Please fill email field.';
-      }
-      if (!attrs.phone_number) {
-          return 'Please fill feedback field.';
-      }
   }
 });
 
@@ -74,29 +66,19 @@ var SignupListView = Backbone.View.extend({
 });
 
 
-// Forms
-
-var SignupForm = Backbone.Model.extend({});
-
-var SignupFormView = Backbone.View.extend({
-  el: $('#form-container'),
-  template: _.template( $('#form-template').html() ),
-  render: function(){
-    this.$el.html(this.template);
-
-   return this;
-  }
-  // events: {
-  //   'click button.submit': ''
-  // },
-})
-
 
 function bindSignup(){
   $('#create-signup').on('submit', function(e){
     e.preventDefault();
     var data = $(this).serializeJSON();
-    checkForm(data);
+    console.log(data);
+    var testData = checkForm(data);
+    console.log(testData);
+    if (testData === true){
+
+      signups.create(data.signup);
+      clearForm();
+    }
   });
 }
 
@@ -111,12 +93,12 @@ function checkForm(data){
   if (nameValidation && emailValidation) {
     nameError(nameValidation);
     emailError(emailValidation);
-    signups.create(data.signup);
-    clearForm();
+    return true;
   } else {
     nameError(nameValidation);
     emailError(emailValidation);
     console.log('checkForm Failed  name:' + nameValidation + ' ' + 'email:' + emailValidation);
+    return false;
   }
 }
 
@@ -145,19 +127,18 @@ function clearForm() {
 
 function nameError(nameValidation){
   if (!nameValidation){
-    console.log('name error')
-    $('.name-input').parent().addClass('error');
+    $('.name-error').css({'display': 'inline-block'})
   } else if (nameValidation){
-      $('.name-input').parent().removeClass('error');
+    $('.name-error').css({'display': 'none'})
     }
 }
 
 function emailError(emailValidation){
   if (!emailValidation){
     console.log('email error')
-    $('.email-input').parent().addClass('error');
+    $('.email-error').css({'display': 'inline-block'})
   } else if (emailValidation){
-      $('.email-input').parent().removeClass('error');
+    $('.email-error').css({'display': 'none'})
     }
 }
 
@@ -173,19 +154,86 @@ function emailError(emailValidation){
   signups.fetch();
 
 
-// Form
-
-  var form = new SignupForm({});
-
-  var formPainter = new SignupFormView({
-    model: form
-  });
-
-  formPainter.render();
-
-
 // Document Ready
 $( document ).ready(function() {
   bindSignup();
 
 });
+
+
+//
+//
+// function bindSignup(){
+//   $('form.create-signup').on('submit', function(e){
+//     e.preventDefault
+//     var signup = $(this).find('#new-signup').val();
+//     checkForm(signup);
+//   })
+// }
+//
+// function checkForm(data){
+//   var name = $('.name-input').val();
+//   var phone = $('.phone-input').val();
+//   var email = $('.email-input').val();
+//
+//   var nameValidation = validateName(name);
+//   var emailValidation = validateEmail(email);
+//
+//   if (nameValidation && emailValidation) {
+//     nameError(nameValidation);
+//     emailError(emailValidation);
+//     console.log(data);
+//     signups.create({data})
+//     clearForm();
+//   } else {
+//     nameError(nameValidation);
+//     emailError(emailValidation);
+//     console.log('checkForm Failed  name:' + nameValidation + ' ' + 'email:' + emailValidation);
+//   }
+// }
+//
+// function validateEmail(email) {
+//     var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+//     return re.test(email);
+// }
+//
+// function validateName(name) {
+//   if (name.length > 0) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+//
+// function clearForm() {
+//   var $name = $('.name-input');
+//   var $phone = $('.phone-input');
+//   var $email = $('.email-input');
+//
+//   $name.val('');
+//   $phone.val('');
+//   $email.val('');
+// }
+//
+//
+//
+//
+//   // SignUps List
+//
+//   var signups = new SignupCollection({});
+//
+//   var signupPainter = new SignupListView({
+//     collection: signups
+//   });
+//
+//
+//
+// // Document Ready
+// $( document ).ready(function() {
+//
+//
+//   signups.fetch();
+//
+//   bindSignup();
+//
+// });

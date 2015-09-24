@@ -9,38 +9,12 @@
 
 
     <script type="text/template" id="signup-template" >
-     <td>  <%%= name %> </td>
+     <td>  <%%= username %> </td>
      <td> <%%= email %> </td>
      <td> <%%= phone_number %> </td>
      <td> <button type="button" class="remove">Remove</button> </td>
     </script>
 
-    <script type="text/template" id="form-template" >
-
-      <form id="create-signup">
-        <div class="row">
-          <div class="three columns">
-              <label for="signup[name]">Name:</label>
-              <input type="text" name="signup[name]" class="name-input">
-          </div>
-          <div class="two columns">
-              <label for="signup[phone_number]">Phone Number:</label>
-              <input type="integer" name="signup[phone_number]"  class="phone-input">
-          </div>
-        </div>
-        <div class="row">
-
-        <div class="three columns">
-            <label for="signup[email]">Email:</label>
-            <input type="text" name="signup[email]"  class="email-input">
-        </div>
-      </div>
-        <div class="row">
-          <input type="submit" id="new-signup" value="Sign Up">
-        </div>
-      </form>
-
-    </script>
 
 
   </head>
@@ -54,7 +28,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.serializeJSON/2.6.1/jquery.serializejson.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.2/backbone.js" charset="utf-8"></script>
-    <script src="/js/backbone-validation.js" charset="utf-8"></script>
     <script src="/js/scripts.js" charset="utf-8"></script>
 
   </body>
