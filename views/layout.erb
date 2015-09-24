@@ -2,12 +2,15 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Sign Up</title>
+
+    <title>Sign Up Sheet</title>
+
+    <!-- Skeleton & Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
     <link rel="stylesheet" href="/css/styles.css">
 
 
-
+    <!-- Signup List Template -->
     <script type="text/template" id="signup-template" >
      <td>  <%%= username %> </td>
      <td> <%%= email %> </td>
@@ -15,15 +18,15 @@
      <td> <button type="button" class="remove">Remove</button> </td>
     </script>
 
-
-
   </head>
+
+
   <body>
+
+
     <div class="container">
       <%= yield %>
-
     </div>
-
 
 
   </body>

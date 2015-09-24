@@ -4,7 +4,7 @@ var app = app || {};
 
 
 // Submit Action
-app.bindSignup = function(){
+app.bindSignupForm = function(){
   $('#create-signup').on('submit', function(e){
     e.preventDefault();
     var data = $(this).serializeJSON();
@@ -18,15 +18,19 @@ app.bindSignup = function(){
 }
 
 
-// Validation
+// Test Inputs
 app.checkForm = function(data){
+
+  // Input Fields
   var name = $('.name-input').val();
   var phone = $('.phone-input').val();
   var email = $('.email-input').val();
 
+  // Validations
   var nameValidation = app.validateName(name);
   var emailValidation = app.validateEmail(email);
 
+  // Validation Test
   if (nameValidation && emailValidation) {
     app.nameError(nameValidation);
     app.emailError(emailValidation);
@@ -40,6 +44,7 @@ app.checkForm = function(data){
   }
 }
 
+// Validation Functions
  app.validateEmail = function(email) {
     var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     return re.test(email);
@@ -53,17 +58,6 @@ app.checkForm = function(data){
   }
 }
 
-
-// Clear Form
- app.clearForm = function(){
-  var $name = $('.name-input');
-  var $phone = $('.phone-input');
-  var $email = $('.email-input');
-
-  $name.val('');
-  $phone.val('');
-  $email.val('');
-}
 
 // Render Errors
 app.nameError = function (nameValidation){
@@ -81,4 +75,16 @@ app.nameError = function (nameValidation){
   } else if (emailValidation){
     $('.email-error').css({'display': 'none'})
     }
+}
+
+
+// Clear Form
+ app.clearForm = function(){
+  var $name = $('.name-input');
+  var $phone = $('.phone-input');
+  var $email = $('.email-input');
+
+  $name.val('');
+  $phone.val('');
+  $email.val('');
 }
