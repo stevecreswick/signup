@@ -1,3 +1,7 @@
 development:
   adapter: postgresql
   database: signup_data
+
+  production:
+    adapter: postgresql
+    database: signup_data

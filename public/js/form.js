@@ -26,11 +26,10 @@ app.checkForm = function(data){
   var phone = $('.phone-input').val();
   var email = $('.email-input').val();
 
-  // Validations
+  // Validation Test
   var nameValidation = app.validateName(name);
   var emailValidation = app.validateEmail(email);
 
-  // Validation Test
   if (nameValidation && emailValidation) {
     app.nameError(nameValidation);
     app.emailError(emailValidation);
@@ -42,6 +41,7 @@ app.checkForm = function(data){
 
     return false;
   }
+
 }
 
 // Validation Functions
